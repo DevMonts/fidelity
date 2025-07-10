@@ -1,0 +1,44 @@
+import 'package:fidelity_app/common/constants/app_colors.dart';
+import 'package:fidelity_app/common/constants/app_text.dart';
+import 'package:fidelity_app/common/constants/app_theme.dart';
+import 'package:flutter/material.dart';
+
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.all(50),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Cadastro', style: AppText.title),
+            SizedBox(height: 20),
+            TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Senha',
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true,
+            ),
+            IconButton(onPressed: null, icon: Icon(Icons.send)),
+          ],
+          spacing: 10,
+        ),
+      ),
+    );
+  }
+}

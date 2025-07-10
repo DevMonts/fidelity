@@ -1,6 +1,7 @@
 import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
+import 'package:fidelity_app/features/register/presentation/page/register_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
