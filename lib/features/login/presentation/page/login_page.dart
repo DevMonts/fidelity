@@ -1,4 +1,6 @@
+import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
+import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: EdgeInsets.all(50),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(widget.title, style: AppText.title),
               Text('Seu app de fidelidade com empresas!'),
@@ -35,6 +37,15 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
               ),
               IconButton(onPressed: null, icon: Icon(Icons.send)),
+              SizedBox(height: 200),
+              Text('Não tem uma conta?'),
+              TextButton(
+                onPressed: null,
+                child: Text(
+                  'Clique aqui e cadastre-se.',
+                  style: TextStyle(color: AppColors.primaryColor),
+                ),
+              ),
             ],
             spacing: 10,
           ),
