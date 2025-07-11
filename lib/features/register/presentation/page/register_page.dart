@@ -1,4 +1,5 @@
 import 'package:fidelity_app/common/constants/app_colors.dart';
+import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
 import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -18,18 +19,18 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Cadastro', style: AppText.title),
+            Text(AppStrings.registerTitle, style: AppText.title),
             SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: 'Email',
+                labelText: AppStrings.email,
                 border: OutlineInputBorder(),
               ),
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: 'Senha',
+                labelText: AppStrings.password,
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
