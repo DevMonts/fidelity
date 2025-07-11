@@ -37,7 +37,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 obscureText: true,
               ),
-              IconButton(onPressed: null, icon: Icon(Icons.send)),
+              IconButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/home');
+                },
+                icon: Icon(Icons.send),
+              ),
               SizedBox(height: 200),
               Text(AppStrings.register1),
               TextButton(
