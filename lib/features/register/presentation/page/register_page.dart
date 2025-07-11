@@ -1,7 +1,5 @@
-import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
-import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
