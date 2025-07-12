@@ -16,6 +16,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Padding(
         padding: EdgeInsets.all(50),
         child: Column(
@@ -41,7 +42,10 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             IconButton(
               onPressed: () async {
-                final provider = Provider.of<RegisterProvider>(context, listen: false);
+                final provider = Provider.of<RegisterProvider>(
+                  context,
+                  listen: false,
+                );
                 final mesage = await provider.registerUser(
                   email: emailController.text.trim(),
                   password: passwordController.text.trim(),
