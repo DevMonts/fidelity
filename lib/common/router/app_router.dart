@@ -1,4 +1,3 @@
-import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
 import 'package:fidelity_app/features/home/presentation/page/home_page.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_page.dart';
