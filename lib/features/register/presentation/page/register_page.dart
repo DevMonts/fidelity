@@ -1,3 +1,4 @@
+import 'package:fidelity_app/app.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_provider.dart';
@@ -13,6 +14,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +43,23 @@ class _RegisterPageState extends State<RegisterPage> {
               obscureText: true,
               controller: passwordController,
             ),
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: AppStrings.confirmPassword,
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true,
+              controller: confirmPasswordController,
+            ),
             IconButton(
               onPressed: () async {
+                if (passwordController.text.trim() !=
+                    confirmPasswordController.text.trim()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(AppStrings.differentPasswords)),
+                  );
+                  return;
+                }
                 final provider = Provider.of<RegisterProvider>(
                   context,
                   listen: false,
