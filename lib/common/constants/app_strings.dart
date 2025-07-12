@@ -6,4 +6,9 @@ class AppStrings {
   static const String register1 = 'Não tem uma conta?';
   static const String register2 = 'Clique aqui e cadastre-se.';
   static const String registerTitle = 'Cadastro';
+
+  static const String emailAlreadyExists = 'Email já cadastrado';
+  static const String success = 'Usuário cadastrado';
+
+  static const String loginError = 'Credenciais inválidas';
 }

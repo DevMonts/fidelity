@@ -1,7 +1,9 @@
 import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
+import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,6 +12,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: AppStrings.email,
                   border: OutlineInputBorder(),
                 ),
+                controller: emailController,
               ),
               TextFormField(
                 decoration: InputDecoration(
@@ -34,12 +39,27 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(),
                 ),
                 obscureText: true,
+                controller: passwordController,
               ),
-              IconButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/home');
+              Consumer<LoginProvider>(
+                builder: (context, loginProvider, child) {
+                  return IconButton(
+                    onPressed: () async {
+                      await loginProvider.login(
+                        emailController.text.trim(),
+                        passwordController.text.trim(),
+                      );
+                      if (loginProvider.isLogged) {
+                        Navigator.pushNamed(context, '/home');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(AppStrings.loginError)),
+                        );
+                      }
+                    },
+                    icon: Icon(Icons.send),
+                  );
                 },
-                icon: Icon(Icons.send),
               ),
               SizedBox(height: 200),
               Text(AppStrings.register1),

@@ -1,6 +1,8 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
+import 'package:fidelity_app/features/register/logic/provider/register_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -9,6 +11,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,6 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 labelText: AppStrings.email,
                 border: OutlineInputBorder(),
               ),
+              controller: emailController,
             ),
             TextFormField(
               decoration: InputDecoration(
@@ -32,8 +37,21 @@ class _RegisterPageState extends State<RegisterPage> {
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
+              controller: passwordController,
             ),
-            IconButton(onPressed: null, icon: Icon(Icons.send)),
+            IconButton(
+              onPressed: () async {
+                final provider = Provider.of<RegisterProvider>(context, listen: false);
+                final mesage = await provider.registerUser(
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
+                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(mesage)));
+              },
+              icon: Icon(Icons.send),
+            ),
           ],
           spacing: 10,
         ),
