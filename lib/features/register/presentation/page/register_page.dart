@@ -1,4 +1,3 @@
-import 'package:fidelity_app/app.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_provider.dart';
