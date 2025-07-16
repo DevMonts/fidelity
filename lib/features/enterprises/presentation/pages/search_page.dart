@@ -23,12 +23,12 @@ class _SearchPageState extends State<SearchPage> {
         automaticallyImplyLeading: false,
       ),
       body: ListView.builder(
-        itemCount: searchProvider.enterprisesArray.length,
+        //itemCount: searchProvider.enterprisesArray.length,
         itemBuilder: (context, index) {
-          final enterprise = searchProvider.enterprisesArray[index];
+          //final enterprise = searchProvider.enterprisesArray[index];
           return Card(
             child: Container(
-              child: Text(enterprise.enterpriseName),
+              //child: Text(enterprise.enterpriseName),
               height: 100,
             ),
           );

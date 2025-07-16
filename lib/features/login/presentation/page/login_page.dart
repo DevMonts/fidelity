@@ -25,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Text(AppStrings.appName, style: AppText.title),
               Text(AppStrings.subtitle),
+
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -33,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 controller: emailController,
               ),
+
               TextFormField(
                 decoration: InputDecoration(
                   labelText: AppStrings.password,
@@ -41,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
                 controller: passwordController,
               ),
+
               Consumer<LoginProvider>(
                 builder: (context, loginProvider, child) {
                   return IconButton(

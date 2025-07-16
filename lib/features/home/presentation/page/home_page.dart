@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
       ),
 
       body: _pages[navigationProvider.currentPage],
-
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(

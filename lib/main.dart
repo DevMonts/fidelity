@@ -1,10 +1,10 @@
 import 'package:fidelity_app/app.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/adapters.dart';
+//import 'package:hive_flutter/adapters.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
-  await Hive.openBox('users');
+  //await Hive.initFlutter();
+  //await Hive.openBox('users');
   runApp(const App());
 }

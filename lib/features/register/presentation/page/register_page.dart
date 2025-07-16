@@ -12,9 +12,13 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  final TextEditingController enterpriseIdController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +38,15 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               controller: emailController,
             ),
+
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: AppStrings.enterpriseId,
+                border: OutlineInputBorder(),
+              ),
+              controller: enterpriseIdController,
+            ),
+
             TextFormField(
               decoration: InputDecoration(
                 labelText: AppStrings.password,
@@ -42,6 +55,7 @@ class _RegisterPageState extends State<RegisterPage> {
               obscureText: true,
               controller: passwordController,
             ),
+
             TextFormField(
               decoration: InputDecoration(
                 labelText: AppStrings.confirmPassword,
@@ -50,6 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
               obscureText: true,
               controller: confirmPasswordController,
             ),
+
             IconButton(
               onPressed: () async {
                 if (passwordController.text.trim() !=
@@ -64,8 +79,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   listen: false,
                 );
                 final mesage = await provider.registerUser(
-                  email: emailController.text.trim(),
-                  password: passwordController.text.trim(),
+                  userEmail: emailController.text.trim(),
+                  userPassword: passwordController.text.trim(),
+                  userEnterpriseId: enterpriseIdController.text.trim(),
                 );
                 ScaffoldMessenger.of(
                   context,

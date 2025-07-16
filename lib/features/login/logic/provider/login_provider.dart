@@ -1,17 +1,25 @@
+import 'package:fidelity_app/common/constants/app_strings.dart';
+import 'package:fidelity_app/common/helpers/db_helper.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+//import 'package:hive/hive.dart';
 
 class LoginProvider extends ChangeNotifier {
   bool isLogged = false;
-  Future<void> login(String email, String password) async {
-    final box  = await Hive.openBox('users');
-    final registeredPassword = box.get(email);
-    if (registeredPassword == password) {
+  String? errorLoginMessage;
+  Future<void> login(String userEmail, String userPassword) async {
+    //final box  = await Hive.openBox('users');
+    final dbHelper = DbHelper.instance;
+    //final registeredPassword = box.get(email);
+    bool userExists = await dbHelper.loginVerification(userEmail, userPassword);
+    if (
+    //registeredPassword == password
+    userExists) {
       isLogged = true;
       notifyListeners();
     } else {
       isLogged = false;
-      notifyListeners();
+      errorLoginMessage = AppStrings.loginError;
     }
+    notifyListeners();
   }
 }
