@@ -40,7 +40,7 @@ class _AdmHomePageState extends State<AdmHomePage> {
             label: AppStrings.registerUser,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_business),
+            icon: Icon(Icons.domain_add),
             label: AppStrings.registerEnterprise,
           ),
         ],
