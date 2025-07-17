@@ -16,7 +16,7 @@ class UserModel {
       'userId': userId,
       'userEmail': userEmail,
       'userPassword': userPassword,
-      'userEnterpriseId': userEnterpriseId,
+      'userEnterprise_id': userEnterpriseId,
     };
   }
 
@@ -25,7 +25,7 @@ class UserModel {
       userId: map['userId'],
       userEmail: map['userEmail'],
       userPassword: map['userPassword'],
-      userEnterpriseId: map['userEnterpriseId'],
+      userEnterpriseId: map['userEnterprise_id'],
     );
   }
 }
