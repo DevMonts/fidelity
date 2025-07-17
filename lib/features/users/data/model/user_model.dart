@@ -2,7 +2,7 @@ class UserModel {
   int userId;
   String userEmail;
   String userPassword;
-  int userEnterpriseId;
+  int? userEnterpriseId;
 
   UserModel({
     required this.userId,

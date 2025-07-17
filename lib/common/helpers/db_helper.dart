@@ -1,4 +1,5 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
+import 'package:fidelity_app/features/users/data/model/user_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -15,6 +16,12 @@ class DbHelper {
   Future<Database> initDb(String dbName) async {
     String completePath = join(await getDatabasesPath(), dbName);
     return await openDatabase(completePath, version: 1, onCreate: createDb);
+  }
+
+  Future<List<UserModel>> showUsers() async {
+    final db = await this.db;
+    var data = await db.query('users');
+    return data.map((user) => UserModel.mapToObject(user)).toList();
   }
 
   //TODO: enterprise_id

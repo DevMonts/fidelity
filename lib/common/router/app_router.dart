@@ -1,6 +1,7 @@
 import 'package:fidelity_app/features/home/presentation/page/home_page.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_page.dart';
+import 'package:fidelity_app/features/users/presentation/page/users_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -12,6 +13,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomePage());
+      case '/users':
+        return MaterialPageRoute(builder: (_) => UsersPage());
       default:
         return MaterialPageRoute(builder: (_) => const LoginPage());
     }
