@@ -1,4 +1,5 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
+import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_enterprise_page.dart';
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_user_page.dart';
@@ -17,6 +18,7 @@ class _AdmHomePageState extends State<AdmHomePage> {
   final List<Widget> _pages = [
     UsersPage(),
     RegisterUserPage(),
+    EnterprisesPage(),
     RegisterEnterprisePage(),
   ];
   @override
@@ -40,12 +42,17 @@ class _AdmHomePageState extends State<AdmHomePage> {
             label: AppStrings.registerUser,
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.domain),
+            label: AppStrings.enterprises,
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.domain_add),
             label: AppStrings.registerEnterprise,
           ),
         ],
         currentIndex: navigationProvider.currentPage,
         onTap: navigationProvider.changePage,
+        type: BottomNavigationBarType.fixed,
       ),
     );
   }

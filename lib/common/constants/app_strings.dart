@@ -26,5 +26,6 @@ class AppStrings {
   //Botton Bar
   static const String users = 'Usuários';
   static const String registerUser = 'Cadastrar Usuário';
+  static const String enterprises = 'Empresas';
   static const String registerEnterprise = 'Cadastrar Empresa';
 }
