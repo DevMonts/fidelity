@@ -5,6 +5,9 @@ class AppStrings {
   static const String register1 = 'Não tem uma conta?';
   static const String register2 = 'Clique aqui e cadastre-se.';
   static const String registerTitle = 'Cadastro';
+  static const String adm = 'ADM';
+  static const String users = 'Usuários';
+  static const String registerUser = 'Cadastrar Usuário';
 
   //Credentials
   static const String email = 'Email';
