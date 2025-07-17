@@ -24,10 +24,6 @@ class DbHelper {
     return data.map((user) => UserModel.mapToObject(user)).toList();
   }
 
-  //TODO: enterprise_id
-  // ,
-  //         userEnterprise_id INTEGER,
-  //         FOREIGN KEY (userEnterprise_id) REFERENCES enterprises(enterprisesId)
   Future createDb(Database db, int version) async {
     await db.execute('''
       CREATE TABLE users (
@@ -76,9 +72,6 @@ class DbHelper {
 
   Future<int> createUser(Map<String, dynamic> user) async {
     final db = await this.db;
-    // if (user['userEnterpriseId'] == null) {
-    //   user['userEnterpriseId'] = 0;
-    // }
     return await db.insert('users', user);
   }
 
