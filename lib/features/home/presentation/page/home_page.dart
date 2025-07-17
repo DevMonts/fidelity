@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     final navigationProvider = context.watch<NavigationProvider>();
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppStrings.appName),
+        title: Text(AppStrings.app),
         automaticallyImplyLeading: false,
       ),
 

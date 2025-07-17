@@ -82,6 +82,11 @@ class DbHelper {
     return await db.insert('users', user);
   }
 
+  Future<int> createEnterprise(Map<String, dynamic> enterprise) async {
+    final db = await this.db;
+    return await db.insert('enterprises', enterprise);
+  }
+
   Future<bool>
   //email
   //password
@@ -91,6 +96,16 @@ class DbHelper {
       'users',
       where: 'userEmail = ? AND userPassword = ?',
       whereArgs: [userEmail, userPassword],
+    );
+    return query.isNotEmpty;
+  }
+
+  Future<bool> enterpriseExists(String enterpriseName) async {
+    final db = await this.db;
+    final query = await db.query(
+      'enterprises',
+      where: 'enterpriseName = ?',
+      whereArgs: [enterpriseName],
     );
     return query.isNotEmpty;
   }

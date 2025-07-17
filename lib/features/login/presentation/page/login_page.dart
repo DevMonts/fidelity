@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text(AppStrings.appName, style: AppText.title),
+              Text(AppStrings.app, style: AppText.title),
               Text(AppStrings.subtitle),
 
               TextFormField(

@@ -1,16 +1,16 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
-import 'package:fidelity_app/features/register/logic/provider/register_provider.dart';
+import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class RegisterUserPage extends StatefulWidget {
+  const RegisterUserPage({super.key});
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<RegisterUserPage> createState() => _RegisterUserPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterUserPageState extends State<RegisterUserPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppStrings.registerTitle, style: AppText.title),
+            Text(AppStrings.register, style: AppText.title),
             SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
@@ -72,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   );
                   return;
                 }
-                final provider = Provider.of<RegisterProvider>(
+                final provider = Provider.of<RegisterUserProvider>(
                   context,
                   listen: false,
                 );

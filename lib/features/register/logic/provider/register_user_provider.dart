@@ -4,7 +4,7 @@ import 'package:fidelity_app/common/helpers/db_helper.dart';
 import 'package:flutter/material.dart';
 //import 'package:hive/hive.dart';
 
-class RegisterProvider extends ChangeNotifier {
+class RegisterUserProvider extends ChangeNotifier {
   bool isLoading = false;
   String? message;
   Future<String> registerUser({
@@ -26,7 +26,7 @@ class RegisterProvider extends ChangeNotifier {
     //)
     ) {
       //   return
-      message = AppStrings.emailAlreadyExists;
+      message = AppStrings.alreadyExists;
     } else {
       await
       //box.put(email, password);

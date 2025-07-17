@@ -5,7 +5,8 @@ import 'package:fidelity_app/features/enterprises/logic/providers/search_provide
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
-import 'package:fidelity_app/features/register/logic/provider/register_provider.dart';
+import 'package:fidelity_app/features/register/logic/provider/register_enterprise_provider.dart';
+import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,12 +18,13 @@ class App extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => NavigationProvider()),
         ChangeNotifierProvider(create: (_) => SearchProvider()),
-        ChangeNotifierProvider(create: (_) => RegisterProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
         ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterEnterpriseProvider()),
       ],
 
       child: MaterialApp(
-        title: AppStrings.appName,
+        title: AppStrings.app,
         theme: AppTheme.lightTheme,
         home: const LoginPage(),
         onGenerateRoute: AppRouter.OnGenerateRoute,
