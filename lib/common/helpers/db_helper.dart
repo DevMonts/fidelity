@@ -41,6 +41,15 @@ class DbHelper {
       )
     ''');
     await db.execute('''
+      CREATE TABLE user_enterprises (
+        userEnterprisesId INTEGER PRIMARY KEY AUTOINCREMENT,
+        userId INTEGER NOT NULL,
+        FOREIGN KEY (userId) REFERENCES users(userId),
+        enterprisesId INTEGER NOT NULL,
+        FOREIGN KEY (enterprisesId) REFERENCES enterprises(enterprisesId)
+      )
+    ''');
+    await db.execute('''
       CREATE TABLE enterprises (
         enterprisesId INTEGER PRIMARY KEY AUTOINCREMENT,
         enterpriseName TEXT NOT NULL
@@ -58,8 +67,7 @@ class DbHelper {
     return await db.insert('enterprises', enterprise);
   }
 
-  Future<bool>
-  loginVerification(String userEmail, String userPassword) async {
+  Future<bool> loginVerification(String userEmail, String userPassword) async {
     final db = await this.db;
     final query = await db.query(
       'users',

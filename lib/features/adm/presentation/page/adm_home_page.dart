@@ -7,14 +7,14 @@ import 'package:fidelity_app/features/users/presentation/page/users_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class AdmHomePage extends StatefulWidget {
-  const AdmHomePage({super.key});
+class AdmPage extends StatefulWidget {
+  const AdmPage({super.key});
 
   @override
-  State<AdmHomePage> createState() => _AdmHomePageState();
+  State<AdmPage> createState() => _AdmPageState();
 }
 
-class _AdmHomePageState extends State<AdmHomePage> {
+class _AdmPageState extends State<AdmPage> {
   final List<Widget> _pages = [
     UsersPage(),
     RegisterUserPage(),
