@@ -15,7 +15,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  final TextEditingController enterpriseIdController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +35,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
               ),
               controller: emailController,
             ),
-
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppStrings.enterpriseId,
-                border: OutlineInputBorder(),
-              ),
-              controller: enterpriseIdController,
-            ),
-
             TextFormField(
               decoration: InputDecoration(
                 labelText: AppStrings.password,
@@ -53,7 +43,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
               obscureText: true,
               controller: passwordController,
             ),
-
             TextFormField(
               decoration: InputDecoration(
                 labelText: AppStrings.confirmPassword,
@@ -62,7 +51,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
               obscureText: true,
               controller: confirmPasswordController,
             ),
-
             IconButton(
               onPressed: () async {
                 if (passwordController.text.trim() !=
@@ -79,7 +67,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                 final mesage = await provider.registerUser(
                   userEmail: emailController.text.trim(),
                   userPassword: passwordController.text.trim(),
-                  userEnterpriseId: enterpriseIdController.text.trim(),
                 );
                 ScaffoldMessenger.of(
                   context,

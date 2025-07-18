@@ -36,7 +36,7 @@ class _UsersPageState extends State<UsersPage> {
                 final user = snapshot.data![index];
                 return Card(
                   child: Text(
-                    '${user.userId} ${user.userEmail} ${user.userEnterpriseId} ${user.userPassword}',
+                    '${user.userId} ${user.userEmail} ${user.userPassword}',
                   ),
                 );
               },

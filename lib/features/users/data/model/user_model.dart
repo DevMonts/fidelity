@@ -2,13 +2,11 @@ class UserModel {
   int userId;
   String userEmail;
   String userPassword;
-  int? userEnterpriseId;
 
   UserModel({
     required this.userId,
     required this.userEmail,
     required this.userPassword,
-    required this.userEnterpriseId,
   });
 
   Map<String, dynamic> objectToMap() {
@@ -16,7 +14,6 @@ class UserModel {
       'userId': userId,
       'userEmail': userEmail,
       'userPassword': userPassword,
-      'userEnterprise_id': userEnterpriseId,
     };
   }
 
@@ -25,7 +22,6 @@ class UserModel {
       userId: map['userId'],
       userEmail: map['userEmail'],
       userPassword: map['userPassword'],
-      userEnterpriseId: map['userEnterprise_id'],
     );
   }
 }

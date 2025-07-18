@@ -10,7 +10,6 @@ class RegisterUserProvider extends ChangeNotifier {
   Future<String> registerUser({
     required String userEmail,
     required String userPassword,
-    required String userEnterpriseId,
   }) async {
     // final box = await Hive.openBox('users');
     isLoading = true;
@@ -33,7 +32,6 @@ class RegisterUserProvider extends ChangeNotifier {
       dbHelper.createUser({
         'userEmail': userEmail,
         'userPassword': userPassword,
-        'userEnterprise_id': userEnterpriseId,
       });
       //   return
       message = AppStrings.success;

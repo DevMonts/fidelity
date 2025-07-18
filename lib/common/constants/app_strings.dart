@@ -12,7 +12,6 @@ class AppStrings {
   //Credentials
   static const String name = 'Nome';
   static const String email = 'Email';
-  static const String enterpriseId = 'ID da Empresa';
   static const String password = 'Senha';
   static const String confirmPassword = 'Confirme a Senha';
 

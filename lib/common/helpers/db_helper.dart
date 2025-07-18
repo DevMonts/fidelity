@@ -37,9 +37,7 @@ class DbHelper {
       CREATE TABLE users (
         userId INTEGER PRIMARY KEY AUTOINCREMENT,
         userEmail TEXT NOT NULL UNIQUE,
-        userPassword TEXT NOT NULL,
-        userEnterprise_id INTEGER,
-        FOREIGN KEY (userEnterprise_id) REFERENCES enterprises(enterprisesId)
+        userPassword TEXT NOT NULL
       )
     ''');
     await db.execute('''
