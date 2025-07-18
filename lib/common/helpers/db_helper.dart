@@ -50,20 +50,6 @@ class DbHelper {
     ''');
   }
 
-  // Future<Map<String, dynamic>> readEnterprises(int enterpriseId) async {
-  //   final db = await this.db;
-  //   final query = await db.query(
-  //     'enterprises',
-  //     where: 'enterprisesId = ?',
-  //     whereArgs: [enterpriseId],
-  //   );
-  //   if (query.isNotEmpty) {
-  //     return query.first;
-  //   } else {
-  //     throw Exception(AppStrings.generalError);
-  //   }
-  // }
-
   Future<int> createUser(Map<String, dynamic> user) async {
     final db = await this.db;
     return await db.insert('users', user);
@@ -75,8 +61,6 @@ class DbHelper {
   }
 
   Future<bool>
-  //email
-  //password
   loginVerification(String userEmail, String userPassword) async {
     final db = await this.db;
     final query = await db.query(
