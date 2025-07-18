@@ -51,20 +51,6 @@ class DbHelper {
     ''');
   }
 
-  Future<Map<String, dynamic>> readUsers(int userId) async {
-    final db = await this.db;
-    final query = await db.query(
-      'users',
-      where: 'userid = ?',
-      whereArgs: [userId],
-    );
-    if (query.isNotEmpty) {
-      return query.first;
-    } else {
-      throw Exception(AppStrings.loginError);
-    }
-  }
-
   // Future<Map<String, dynamic>> readEnterprises(int enterpriseId) async {
   //   final db = await this.db;
   //   final query = await db.query(
