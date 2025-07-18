@@ -10,6 +10,15 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback //Run after build
+    ((_) {
+      Provider.of<SearchProvider>(context, listen: false).searchEnterprises();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final searchProvider = context.watch<SearchProvider>();
     return Scaffold(
@@ -23,12 +32,14 @@ class _SearchPageState extends State<SearchPage> {
         automaticallyImplyLeading: false,
       ),
       body: ListView.builder(
-        //itemCount: searchProvider.enterprisesArray.length,
+        itemCount: searchProvider.enterprisesArray.length,
         itemBuilder: (context, index) {
-          //final enterprise = searchProvider.enterprisesArray[index];
+          final enterprise = searchProvider.enterprisesArray[index];
           return Card(
             child: Container(
-              //child: Text(enterprise.enterpriseName),
+              child: Text(
+                '${enterprise.enterpriseId} ${enterprise.enterpriseName}',
+              ),
               height: 100,
             ),
           );
