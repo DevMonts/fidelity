@@ -1,5 +1,6 @@
 import 'package:fidelity_app/features/enterprises/data/model/enterprise_model.dart';
 import 'package:fidelity_app/features/users/data/model/user_model.dart';
+import 'package:fidelity_app/features/vinculation/data/model/vinculation_model.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -110,7 +111,14 @@ class DbHelper {
     final db = await this.db;
     return await db.insert('vinculations', vinculation);
   }
-  //TODO: Show vinculations
+  
+  Future<List<VinculationModel>> showVinculations() async {
+    final db = await this.db;
+    var data = await db.query('vinculations');
+    return data
+        .map((vinculation) => VinculationModel.mapToObject(vinculation))
+        .toList();
+  }
 
   //TODO: Delete
 

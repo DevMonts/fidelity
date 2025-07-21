@@ -51,7 +51,8 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
                     );
                   },
                 );
-              } else {
+              }  //TODO: Empty
+              else {
                 return const Text(AppStrings.generalError);
               }
             },

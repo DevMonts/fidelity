@@ -41,7 +41,8 @@ class _UsersPageState extends State<UsersPage> {
                 );
               },
             );
-          } else {
+          } //TODO: Empty
+          else {
             return const Center(child: Text(AppStrings.generalError));
           }
         },
