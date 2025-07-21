@@ -1,4 +1,4 @@
-import 'package:fidelity_app/features/adm/adm_home/presentation/page/adm_home_page.dart';
+import 'package:fidelity_app/features/adm/presentation/page/adm_page.dart';
 import 'package:fidelity_app/features/home/presentation/page/home_page.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_user_page.dart';
@@ -14,7 +14,7 @@ class AppRouter {
       case '/home':
         return MaterialPageRoute(builder: (_) => const HomePage());
       case '/adm':
-        return MaterialPageRoute(builder: (_) => AdmHomePage());
+        return MaterialPageRoute(builder: (_) => AdmPage());
       default:
         return MaterialPageRoute(builder: (_) => const LoginPage());
     }

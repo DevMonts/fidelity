@@ -10,6 +10,8 @@ class AppStrings {
   static const String register2 = 'Clique aqui e cadastre-se.';
 
   //Credentials
+  static const String userId = 'ID do Usuário';
+  static const String enterpriseId = 'ID da Empresa';
   static const String name = 'Nome';
   static const String email = 'Email';
   static const String password = 'Senha';
@@ -25,6 +27,7 @@ class AppStrings {
   //Botton Bar
   static const String users = 'Usuários';
   static const String registerUser = 'Cadastrar Usuário';
+  static const String vinculate = 'Vincular';
   static const String enterprises = 'Empresas';
   static const String registerEnterprise = 'Cadastrar Empresa';
 }

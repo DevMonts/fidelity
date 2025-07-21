@@ -7,6 +7,7 @@ import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_enterprise_provider.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
+import 'package:fidelity_app/features/vinculation/logic/provider/vinculate_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => RegisterEnterpriseProvider()),
+        ChangeNotifierProvider(create: (_) => VinculateProvider()),
       ],
 
       child: MaterialApp(
