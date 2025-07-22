@@ -30,14 +30,14 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
             TextFormField(
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                labelText: AppStrings.email,
+                labelText: AppStrings.emailLabel,
                 border: OutlineInputBorder(),
               ),
               controller: emailController,
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: AppStrings.password,
+                labelText: AppStrings.passwordLabel,
                 border: OutlineInputBorder(),
               ),
               obscureText: true,
@@ -45,7 +45,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
             ),
             TextFormField(
               decoration: InputDecoration(
-                labelText: AppStrings.confirmPassword,
+                labelText: AppStrings.confirmPasswordLabel,
                 border: OutlineInputBorder(),
               ),
               obscureText: true,

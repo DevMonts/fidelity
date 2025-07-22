@@ -30,7 +30,7 @@ class App extends StatelessWidget {
         theme: AppTheme.lightTheme,
         home: const LoginPage(),
         onGenerateRoute: AppRouter.OnGenerateRoute,
-        initialRoute: '/adm',
+        initialRoute: '/login',
       ),
     );
   }

@@ -26,6 +26,14 @@ class _LoginPageState extends State<LoginPage> {
             exit(0);
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.lock_person),
+            onPressed: () {
+              Navigator.pushNamed(context, '/admLogin');
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Padding(
@@ -39,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: AppStrings.email,
+                  labelText: AppStrings.emailLabel,
                   border: OutlineInputBorder(),
                 ),
                 controller: emailController,
@@ -47,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
 
               TextFormField(
                 decoration: InputDecoration(
-                  labelText: AppStrings.password,
+                  labelText: AppStrings.passwordLabel,
                   border: OutlineInputBorder(),
                 ),
                 obscureText: true,

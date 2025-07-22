@@ -31,7 +31,9 @@ class _VinculatePageState extends State<VinculatePage> {
             children: [
               Expanded(
                 child: TextFormField(
-                  decoration: InputDecoration(labelText: AppStrings.userId),
+                  decoration: InputDecoration(
+                    labelText: AppStrings.userIdLabel,
+                  ),
                   controller: userIdController,
                   keyboardType: TextInputType.number,
                 ),
@@ -53,7 +55,8 @@ class _VinculatePageState extends State<VinculatePage> {
                       context,
                     ).showSnackBar(SnackBar(content: Text(mesage)));
                     setState(() {
-                      vinculation = DbHelper.instance.vinculationHelper.showVinculations();
+                      vinculation = DbHelper.instance.vinculationHelper
+                          .showVinculations();
                     });
                   },
                   child: Text(AppStrings.vinculate),
@@ -62,7 +65,7 @@ class _VinculatePageState extends State<VinculatePage> {
               Expanded(
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: AppStrings.enterpriseId,
+                    labelText: AppStrings.enterpriseIdLabel,
                   ),
                   controller: enterpriseIdController,
                   keyboardType: TextInputType.number,

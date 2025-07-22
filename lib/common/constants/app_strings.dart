@@ -8,14 +8,16 @@ class AppStrings {
   static const String subtitle = 'Seu app de fidelidade com empresas!';
   static const String register1 = 'Não tem uma conta?';
   static const String register2 = 'Clique aqui e cadastre-se.';
+  static const String admCode = 'acesso9090';
 
-  //Credentials
-  static const String userId = 'ID do Usuário';
-  static const String enterpriseId = 'ID da Empresa';
-  static const String name = 'Nome';
-  static const String email = 'Email';
-  static const String password = 'Senha';
-  static const String confirmPassword = 'Confirme a Senha';
+  //Labels
+  static const String userIdLabel = 'ID do Usuário';
+  static const String enterpriseIdLabel = 'ID da Empresa';
+  static const String nameLabel = 'Nome';
+  static const String emailLabel = 'Email';
+  static const String passwordLabel = 'Senha';
+  static const String confirmPasswordLabel = 'Confirme a Senha';
+  static const String admCodeLabel = 'Código de Administrador';
 
   //Mesages
   static const String alreadyExists = 'Já cadastrado';

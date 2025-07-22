@@ -18,7 +18,7 @@ class _RegisterEnterprisePageState extends State<RegisterEnterprisePage> {
         children: [
           TextFormField(
             keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(labelText: AppStrings.name),
+            decoration: InputDecoration(labelText: AppStrings.nameLabel),
             controller: nameController,
           ),
           IconButton(
