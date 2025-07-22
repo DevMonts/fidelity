@@ -95,8 +95,10 @@ class _VinculatePageState extends State<VinculatePage> {
                       );
                     },
                   );
-                } //TODO: Empty
-                else {
+                }
+                if (snapshot.hasData && snapshot.data!.isEmpty) {
+                  return Center(child: Text(AppStrings.empty));
+                } else {
                   return const Text(AppStrings.generalError);
                 }
               },
