@@ -40,14 +40,14 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
                       snapshot.data!.length,
                   itemBuilder: (context, index) {
                     final enterprise = snapshot.data![index];
-                    return Card(
-                      child: Container(
-                        child: Text(
-                          //enterpriseList[enterprise].enterpriseName
-                          '${enterprise.enterpriseId} ${enterprise.enterpriseName}',
-                        ),
-                        height: 100,
+                    return ListTile(
+                      leading: CircleAvatar(
+                        child: Text('${enterprise.enterpriseId}'),
                       ),
+                      title: Text(enterprise.enterpriseName),
+                      //subtitle: null,
+                      //onTap: () {},
+                      //onLongPress: () {},
                     );
                   },
                 );
