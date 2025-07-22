@@ -14,29 +14,36 @@ class _RegisterEnterprisePageState extends State<RegisterEnterprisePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(labelText: AppStrings.nameLabel),
-            controller: nameController,
-          ),
-          IconButton(
-            onPressed: () async {
-              final provider = Provider.of<RegisterEnterpriseProvider>(
-                context,
-                listen: false,
-              );
-              final mesage = await provider.registerEnterprise(
-                enterpriseName: nameController.text.trim(),
-              );
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(mesage)));
-            },
-            icon: Icon(Icons.send),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: AppStrings.nameLabel,
+                border: OutlineInputBorder(),
+              ),
+              controller: nameController,
+            ),
+            IconButton(
+              onPressed: () async {
+                final provider = Provider.of<RegisterEnterpriseProvider>(
+                  context,
+                  listen: false,
+                );
+                final mesage = await provider.registerEnterprise(
+                  enterpriseName: nameController.text.trim(),
+                );
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text(mesage)));
+              },
+              icon: Icon(Icons.send),
+            ),
+          ],
+        ),
       ),
     );
   }
