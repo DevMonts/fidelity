@@ -25,6 +25,7 @@ class AppStrings {
   static const String loginError = 'Credenciais inválidas';
   static const String differentPasswords = 'As senhas são diferentes';
   static const String generalError = 'Erro';
+  static const String empty = 'Vazia';
 
   //Botton Bar
   static const String users = 'Usuários';

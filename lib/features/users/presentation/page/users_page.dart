@@ -41,8 +41,10 @@ class _UsersPageState extends State<UsersPage> {
                 );
               },
             );
-          } //TODO: Empty
-          else {
+          }
+          if (snapshot.hasData && snapshot.data!.isEmpty) {
+            return const Center(child: Text(AppStrings.empty));
+          } else {
             return const Center(child: Text(AppStrings.generalError));
           }
         },
