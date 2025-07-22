@@ -51,8 +51,10 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
                     );
                   },
                 );
-              }  //TODO: Empty
-              else {
+              }
+              if (snapshot.hasData && snapshot.data!.isEmpty) {
+                return const Center(child: Text(AppStrings.empty));
+              } else {
                 return const Text(AppStrings.generalError);
               }
             },
