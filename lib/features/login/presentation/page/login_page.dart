@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
@@ -17,6 +19,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.power_settings_new, color: Colors.red),
+          onPressed: () {
+            exit(0);
+          },
+        ),
+      ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(50),
