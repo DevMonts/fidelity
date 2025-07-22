@@ -27,17 +27,21 @@ class _UsersPageState extends State<UsersPage> {
             return Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
+            return Center(child: Text(snapshot.error.toString()));
           }
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 final user = snapshot.data![index];
-                return Card(
-                  child: Text(
-                    '${user.userId} ${user.userEmail} ${user.userPassword}',
+                return ListTile(
+                  leading: CircleAvatar(child: Text('${user.userId}')),
+                  title: Text(AppStrings.emailLabel + ': ${user.userEmail}'),
+                  subtitle: Text(
+                    AppStrings.passwordLabel + ': ${user.userPassword}',
                   ),
+                  //onTap: () {},
+                  //onLongPress: () {},
                 );
               },
             );
