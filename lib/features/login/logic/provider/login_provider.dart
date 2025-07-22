@@ -10,7 +10,7 @@ class LoginProvider extends ChangeNotifier {
     //final box  = await Hive.openBox('users');
     final dbHelper = DbHelper.instance;
     //final registeredPassword = box.get(email);
-    bool userExists = await dbHelper.loginVerification(userEmail, userPassword);
+    bool userExists = await dbHelper.usersHelper.loginVerification(userEmail, userPassword);
     if (
     //registeredPassword == password
     userExists) {

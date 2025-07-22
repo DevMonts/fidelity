@@ -12,14 +12,14 @@ class VinculateProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     final dbHelper = DbHelper.instance;
-    bool vinculationExists = await dbHelper.vinculationExists(
+    bool vinculationExists = await dbHelper.vinculationHelper.vinculationExists(
       userId,
       enterpriseId,
     );
     if (vinculationExists) {
       message = AppStrings.alreadyExists;
     } else {
-      await dbHelper.createVinculation({
+      await dbHelper.vinculationHelper.createVinculation({
         'userId': userId,
         'enterpriseId': enterpriseId,
       });

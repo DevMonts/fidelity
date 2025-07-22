@@ -9,11 +9,11 @@ class RegisterEnterpriseProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     final dbHelper = DbHelper.instance;
-    bool enterpriseExists = await dbHelper.enterpriseExists(enterpriseName);
+    bool enterpriseExists = await dbHelper.enterprisesHelper.enterpriseExists(enterpriseName);
     if (enterpriseExists) {
       message = AppStrings.alreadyExists;
     } else {
-      await dbHelper.createEnterprise({'enterpriseName': enterpriseName});
+      await dbHelper.enterprisesHelper.createEnterprise({'enterpriseName': enterpriseName});
       message = AppStrings.success;
     }
     isLoading = false;

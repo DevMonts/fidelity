@@ -7,7 +7,7 @@ class SearchProvider extends ChangeNotifier {
   List<EnterpriseModel> enterprisesArray = [];
   //EnterpriseRepository.enterprisesArray;
   Future<void> searchEnterprises([String query = '']) async {
-    final allEnterprises = await DbHelper.instance.showEnterprises();
+    final allEnterprises = await DbHelper.instance.enterprisesHelper.showEnterprises();
     if (query.isEmpty) {
       enterprisesArray =
           //EnterpriseRepository.

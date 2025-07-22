@@ -14,7 +14,7 @@ class _UsersPageState extends State<UsersPage> {
   @override
   void initState() {
     super.initState();
-    users = DbHelper.instance.showUsers();
+    users = DbHelper.instance.usersHelper.showUsers();
   }
 
   @override

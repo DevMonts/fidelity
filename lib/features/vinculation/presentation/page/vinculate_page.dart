@@ -19,7 +19,7 @@ class _VinculatePageState extends State<VinculatePage> {
   @override
   void initState() {
     super.initState();
-    vinculation = DbHelper.instance.showVinculations();
+    vinculation = DbHelper.instance.vinculationHelper.showVinculations();
   }
 
   @override
@@ -53,7 +53,7 @@ class _VinculatePageState extends State<VinculatePage> {
                       context,
                     ).showSnackBar(SnackBar(content: Text(mesage)));
                     setState(() {
-                      vinculation = DbHelper.instance.showVinculations();
+                      vinculation = DbHelper.instance.vinculationHelper.showVinculations();
                     });
                   },
                   child: Text(AppStrings.vinculate),

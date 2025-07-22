@@ -1,10 +1,13 @@
-import 'package:fidelity_app/features/enterprises/data/model/enterprise_model.dart';
-import 'package:fidelity_app/features/users/data/model/user_model.dart';
-import 'package:fidelity_app/features/vinculation/data/model/vinculation_model.dart';
+import 'package:fidelity_app/features/enterprises/data/helper/enterprises_helper.dart';
+import 'package:fidelity_app/features/users/data/helper/users_helper.dart';
+import 'package:fidelity_app/features/vinculation/data/helper/vinculation_helper.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper {
+  final UsersHelper usersHelper = UsersHelper();
+  final EnterprisesHelper enterprisesHelper = EnterprisesHelper();
+  final VinculationHelper vinculationHelper = VinculationHelper();
   static final DbHelper instance = DbHelper._instantiate();
   static Database? _database;
   DbHelper._instantiate();
@@ -47,89 +50,89 @@ class DbHelper {
     ''');
   }
 
-  //TODO: Separete by table
+  //   //Separated by table, moved to individual helpers
 
-  //USERS
-  //Create
-  Future<int> createUser(Map<String, dynamic> user) async {
-    final db = await this.db;
-    return await db.insert('users', user);
-  }
+  //   //USERS
+  //   //Create
+  //   Future<int> createUser(Map<String, dynamic> user) async {
+  //     final db = await this.db;
+  //     return await db.insert('users', user);
+  //   }
 
-  //Read
-  Future<List<UserModel>> showUsers() async {
-    final db = await this.db;
-    var data = await db.query('users');
-    return data.map((user) => UserModel.mapToObject(user)).toList();
-  }
+  //   //Read
+  //   Future<List<UserModel>> showUsers() async {
+  //     final db = await this.db;
+  //     var data = await db.query('users');
+  //     return data.map((user) => UserModel.mapToObject(user)).toList();
+  //   }
 
-  //TODO: Delete
+  //   //TODO: Delete
 
-  //Verification
-  Future<bool> loginVerification(String userEmail, String userPassword) async {
-    final db = await this.db;
-    final query = await db.query(
-      'users',
-      where: 'userEmail = ? AND userPassword = ?',
-      whereArgs: [userEmail, userPassword],
-    );
-    return query.isNotEmpty;
-  }
+  //   //Verification
+  //   Future<bool> loginVerification(String userEmail, String userPassword) async {
+  //     final db = await this.db;
+  //     final query = await db.query(
+  //       'users',
+  //       where: 'userEmail = ? AND userPassword = ?',
+  //       whereArgs: [userEmail, userPassword],
+  //     );
+  //     return query.isNotEmpty;
+  //   }
 
-  //ENTERPRISES
-  //Create
-  Future<int> createEnterprise(Map<String, dynamic> enterprise) async {
-    final db = await this.db;
-    return await db.insert('enterprises', enterprise);
-  }
+  //   //ENTERPRISES
+  //   //Create
+  //   Future<int> createEnterprise(Map<String, dynamic> enterprise) async {
+  //     final db = await this.db;
+  //     return await db.insert('enterprises', enterprise);
+  //   }
 
-  //Read
-  Future<List<EnterpriseModel>> showEnterprises() async {
-    final db = await this.db;
-    var data = await db.query('enterprises');
-    return data
-        .map((enterprise) => EnterpriseModel.mapToObject(enterprise))
-        .toList();
-  }
+  //   //Read
+  //   Future<List<EnterpriseModel>> showEnterprises() async {
+  //     final db = await this.db;
+  //     var data = await db.query('enterprises');
+  //     return data
+  //         .map((enterprise) => EnterpriseModel.mapToObject(enterprise))
+  //         .toList();
+  //   }
 
-  //TODO: Delete enterprise
+  //   //TODO: Delete enterprise
 
-  //Veficiation
-  Future<bool> enterpriseExists(String enterpriseName) async {
-    final db = await this.db;
-    final query = await db.query(
-      'enterprises',
-      where: 'enterpriseName = ?',
-      whereArgs: [enterpriseName],
-    );
-    return query.isNotEmpty;
-  }
+  //   //Veficiation
+  //   Future<bool> enterpriseExists(String enterpriseName) async {
+  //     final db = await this.db;
+  //     final query = await db.query(
+  //       'enterprises',
+  //       where: 'enterpriseName = ?',
+  //       whereArgs: [enterpriseName],
+  //     );
+  //     return query.isNotEmpty;
+  //   }
 
-  //VINCULATION
-  //Create
-  Future<int> createVinculation(Map<String, dynamic> vinculation) async {
-    final db = await this.db;
-    return await db.insert('vinculations', vinculation);
-  }
-  
-  Future<List<VinculationModel>> showVinculations() async {
-    final db = await this.db;
-    var data = await db.query('vinculations');
-    return data
-        .map((vinculation) => VinculationModel.mapToObject(vinculation))
-        .toList();
-  }
+  //   //VINCULATION
+  //   //Create
+  //   Future<int> createVinculation(Map<String, dynamic> vinculation) async {
+  //     final db = await this.db;
+  //     return await db.insert('vinculations', vinculation);
+  //   }
 
-  //TODO: Delete
+  //   Future<List<VinculationModel>> showVinculations() async {
+  //     final db = await this.db;
+  //     var data = await db.query('vinculations');
+  //     return data
+  //         .map((vinculation) => VinculationModel.mapToObject(vinculation))
+  //         .toList();
+  //   }
 
-  //Verification
-  Future<bool> vinculationExists(int userId, int enterpriseId) async {
-    final db = await this.db;
-    final query = await db.query(
-      'vinculations',
-      where: 'userId = ? AND enterpriseId = ?',
-      whereArgs: [userId, enterpriseId],
-    );
-    return query.isNotEmpty;
-  }
+  //   //TODO: Delete
+
+  //   //Verification
+  //   Future<bool> vinculationExists(int userId, int enterpriseId) async {
+  //     final db = await this.db;
+  //     final query = await db.query(
+  //       'vinculations',
+  //       where: 'userId = ? AND enterpriseId = ?',
+  //       whereArgs: [userId, enterpriseId],
+  //     );
+  //     return query.isNotEmpty;
+  //   }
 }

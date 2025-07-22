@@ -15,7 +15,7 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
   @override
   void initState() {
     super.initState();
-    enterprises = DbHelper.instance.showEnterprises();
+    enterprises = DbHelper.instance.enterprisesHelper.showEnterprises();
   }
 
   @override

@@ -12,14 +12,14 @@ class RegisterUserProvider extends ChangeNotifier {
     isLoading = true;
     notifyListeners();
     final dbHelper = DbHelper.instance;
-    bool emailExists = await dbHelper.loginVerification(
+    bool emailExists = await dbHelper.usersHelper.loginVerification(
       userEmail,
       userPassword,
     );
     if (emailExists) {
       message = AppStrings.alreadyExists;
     } else {
-      await dbHelper.createUser({
+      await dbHelper.usersHelper.createUser({
         'userEmail': userEmail,
         'userPassword': userPassword,
       });
