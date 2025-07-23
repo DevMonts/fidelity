@@ -71,6 +71,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text(mesage)));
+                Navigator.pushNamed(context, '/home');
               },
               icon: Icon(Icons.send),
             ),

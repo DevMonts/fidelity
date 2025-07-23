@@ -40,12 +40,16 @@ class _UsersPageState extends State<UsersPage> {
                     itemBuilder: (context, index) {
                       final user = snapshot.data![index];
                       return ListTile(
-                        leading: CircleAvatar(child: Text('${user.userId}')),
+                        //leading: CircleAvatar(child: Text('${user.userId}')),
                         title: Text(
-                          AppStrings.emailLabel + ': ${user.userEmail}',
+                          //AppStrings.emailLabel + ': ${
+                          user.userEmail,
+                          //}',
                         ),
                         subtitle: Text(
-                          AppStrings.passwordLabel + ': ${user.userPassword}',
+                          //AppStrings.passwordLabel + ': ${
+                          user.userPassword,
+                          //}',
                         ),
                         //onTap: () {},
                         //onLongPress: () {},
