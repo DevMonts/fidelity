@@ -1,5 +1,6 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
+import 'package:fidelity_app/features/login/logic/provider/password_view_provider.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,21 +36,55 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
               ),
               controller: emailController,
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppStrings.passwordLabel,
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-              controller: passwordController,
+            Consumer<PasswordViewProvider>(
+              builder: (context, passwordViewProvider, child) {
+                return TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppStrings.passwordLabel,
+                    border: OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        passwordViewProvider.obscureText
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        Provider.of<PasswordViewProvider>(
+                          context,
+                          listen: false,
+                        ).changePasswordViewer();
+                      },
+                    ),
+                  ),
+                  obscureText: passwordViewProvider.obscureText,
+                  controller: passwordController,
+                );
+              },
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: AppStrings.confirmPasswordLabel,
-                border: OutlineInputBorder(),
-              ),
-              obscureText: true,
-              controller: confirmPasswordController,
+            Consumer<PasswordViewProvider>(
+              builder: (context, passwordViewProvider, child) {
+                return TextFormField(
+                  decoration: InputDecoration(
+                    labelText: AppStrings.confirmPasswordLabel,
+                    border: OutlineInputBorder(),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        passwordViewProvider.obscureText
+                            ? Icons.visibility_off
+                            : Icons.visibility,
+                      ),
+                      onPressed: () {
+                        Provider.of<PasswordViewProvider>(
+                          context,
+                          listen: false,
+                        ).changePasswordViewer();
+                      },
+                    ),
+                  ),
+                  obscureText: passwordViewProvider.obscureText,
+                  controller: confirmPasswordController,
+                );
+              },
             ),
             IconButton(
               onPressed: () async {
