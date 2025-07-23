@@ -1,7 +1,6 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
-import 'package:fidelity_app/features/register/presentation/page/register_user_page.dart';
 import 'package:fidelity_app/features/users/presentation/page/users_page.dart';
 import 'package:fidelity_app/features/vinculation/presentation/page/vinculate_page.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +14,7 @@ class AdmPage extends StatefulWidget {
 }
 
 class _AdmPageState extends State<AdmPage> {
-  final List<Widget> _pages = [
-    UsersPage(),
-    RegisterUserPage(),
-    VinculatePage(),
-    EnterprisesPage(),
-  ];
+  final List<Widget> _pages = [UsersPage(), VinculatePage(), EnterprisesPage()];
   @override
   Widget build(BuildContext context) {
     final navigationProvider = context.watch<NavigationProvider>();
@@ -36,10 +30,6 @@ class _AdmPageState extends State<AdmPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.groups_3),
             label: AppStrings.users,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_add),
-            label: AppStrings.registerUser,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.handshake),
