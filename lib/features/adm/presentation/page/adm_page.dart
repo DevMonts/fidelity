@@ -1,6 +1,5 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
-import 'package:fidelity_app/features/register/presentation/page/register_enterprise_page.dart';
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/register/presentation/page/register_user_page.dart';
 import 'package:fidelity_app/features/users/presentation/page/users_page.dart';
@@ -21,7 +20,6 @@ class _AdmPageState extends State<AdmPage> {
     RegisterUserPage(),
     VinculatePage(),
     EnterprisesPage(),
-    RegisterEnterprisePage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -50,10 +48,6 @@ class _AdmPageState extends State<AdmPage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.domain),
             label: AppStrings.enterprises,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.domain_add),
-            label: AppStrings.registerEnterprise,
           ),
         ],
         currentIndex: navigationProvider.currentPage,

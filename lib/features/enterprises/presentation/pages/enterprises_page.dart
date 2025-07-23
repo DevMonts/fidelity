@@ -2,7 +2,9 @@ import 'package:fidelity_app/common/constants/app_strings.dart';
 //import 'package:fidelity_app/features/enterprises/data/repository/enterprise_repository.dart';
 import 'package:fidelity_app/common/helpers/db_helper.dart';
 import 'package:fidelity_app/features/enterprises/data/model/enterprise_model.dart';
+import 'package:fidelity_app/features/register/logic/provider/register_enterprise_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class EnterprisesPage extends StatefulWidget {
   const EnterprisesPage({super.key});
@@ -21,16 +23,50 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
   @override
   Widget build(BuildContext context) {
     //final enterpriseList = EnterpriseRepository.enterprisesArray;
+    final nameController = TextEditingController();
     return Scaffold(
+      appBar: AppBar(
+        title: TextFormField(
+          decoration: InputDecoration(
+            labelText: AppStrings.registerEnterprise,
+            border: OutlineInputBorder(),
+          ),
+          controller: nameController,
+        ),
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final provider = Provider.of<RegisterEnterpriseProvider>(
+                context,
+                listen: false,
+              );
+              final mesage = await provider.registerEnterprise(
+                enterpriseName: nameController.text.trim(),
+              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(mesage)));
+              setState(() {
+                enterprises = DbHelper.instance.enterprisesHelper
+                    .showEnterprises();
+              });
+            },
+            icon: const Icon(Icons.add),
+          ),
+          SizedBox(width: 15),
+        ],
+        toolbarHeight: 100,
+      ),
       body:
           FutureBuilder<List<EnterpriseModel>>
           //View.builder
           (
             future: enterprises,
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
-              }
+              // if (snapshot.connectionState == ConnectionState.waiting) {
+              //   return Center(child: CircularProgressIndicator());
+              // }
               if (snapshot.hasError) {
                 return Text(snapshot.error.toString());
               }
