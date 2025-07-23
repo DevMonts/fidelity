@@ -20,7 +20,7 @@ class _AdmPageState extends State<AdmPage> {
     final navigationProvider = context.watch<NavigationProvider>();
     return Scaffold(
       appBar: AppBar(
-        //title: Text(AppStrings.adm),
+        title: Text(AppStrings.adm),
         //automaticallyImplyLeading: false,
       ),
 

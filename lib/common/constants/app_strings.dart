@@ -2,7 +2,7 @@ class AppStrings {
   //Titles
   static const String app = 'Fidelity App';
   static const String register = 'Cadastro';
-  //static const String adm = 'ADM';
+  static const String adm = 'Painel Administrativo';
 
   //App
   static const String subtitle = 'Seu app de fidelidade com empresas!';
