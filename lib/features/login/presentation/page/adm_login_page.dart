@@ -8,18 +8,21 @@ class AdmLoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: TextField(
-          decoration: InputDecoration(
-            labelText: AppStrings.admCodeLabel,
-            border: OutlineInputBorder(),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: TextField(
+            decoration: InputDecoration(
+              labelText: AppStrings.admCodeLabel,
+              border: OutlineInputBorder(),
+            ),
+            obscureText: true,
+            onChanged: (value) {
+              if (value == AppStrings.admCode) {
+                Navigator.pushNamed(context, '/adm');
+              }
+            },
           ),
-          obscureText: true,
-          onChanged: (value) {
-            if (value == AppStrings.admCode) {
-              Navigator.pushNamed(context, '/adm');
-            }
-          },
         ),
       ),
     );
