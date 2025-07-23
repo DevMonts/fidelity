@@ -6,13 +6,13 @@ import 'package:fidelity_app/features/register/logic/provider/register_enterpris
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class EnterprisesPage extends StatefulWidget {
-  const EnterprisesPage({super.key});
+class EnterprisesAdmPage extends StatefulWidget {
+  const EnterprisesAdmPage({super.key});
   @override
-  State<EnterprisesPage> createState() => _EnterprisesPageState();
+  State<EnterprisesAdmPage> createState() => _EnterprisesAdmPageState();
 }
 
-class _EnterprisesPageState extends State<EnterprisesPage> {
+class _EnterprisesAdmPageState extends State<EnterprisesAdmPage> {
   late Future<List<EnterpriseModel>> enterprises;
   @override
   void initState() {
@@ -23,7 +23,41 @@ class _EnterprisesPageState extends State<EnterprisesPage> {
   @override
   Widget build(BuildContext context) {
     //final enterpriseList = EnterpriseRepository.enterprisesArray;
+    final nameController = TextEditingController();
     return Scaffold(
+      appBar: AppBar(
+        title: TextFormField(
+          decoration: InputDecoration(
+            labelText: AppStrings.registerEnterprise,
+            border: OutlineInputBorder(),
+          ),
+          controller: nameController,
+        ),
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              final provider = Provider.of<RegisterEnterpriseProvider>(
+                context,
+                listen: false,
+              );
+              final mesage = await provider.registerEnterprise(
+                enterpriseName: nameController.text.trim(),
+              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(mesage)));
+              setState(() {
+                enterprises = DbHelper.instance.enterprisesHelper
+                    .showEnterprises();
+              });
+            },
+            icon: const Icon(Icons.add),
+          ),
+          SizedBox(width: 15),
+        ],
+        toolbarHeight: 100,
+      ),
       body:
           FutureBuilder<List<EnterpriseModel>>
           //View.builder

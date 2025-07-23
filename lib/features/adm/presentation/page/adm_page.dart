@@ -1,5 +1,5 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
-import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
+import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_adm_page.dart';
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/users/presentation/page/users_page.dart';
 import 'package:fidelity_app/features/vinculation/presentation/page/vinculate_page.dart';
@@ -14,7 +14,11 @@ class AdmPage extends StatefulWidget {
 }
 
 class _AdmPageState extends State<AdmPage> {
-  final List<Widget> _pages = [UsersPage(), VinculatePage(), EnterprisesPage()];
+  final List<Widget> _pages = [
+    UsersPage(),
+    VinculatePage(),
+    EnterprisesAdmPage(),
+  ];
   @override
   Widget build(BuildContext context) {
     final navigationProvider = context.watch<NavigationProvider>();
