@@ -4,6 +4,7 @@ import 'package:fidelity_app/common/router/app_router.dart';
 import 'package:fidelity_app/features/enterprises/logic/providers/search_provider.dart';
 import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
+import 'package:fidelity_app/features/login/logic/provider/password_view_provider.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_enterprise_provider.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SearchProvider()),
         ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
         ChangeNotifierProvider(create: (_) => LoginProvider()),
+        ChangeNotifierProvider(create: (_) => PasswordViewProvider()),
         ChangeNotifierProvider(create: (_) => RegisterEnterpriseProvider()),
         ChangeNotifierProvider(create: (_) => VinculateProvider()),
       ],

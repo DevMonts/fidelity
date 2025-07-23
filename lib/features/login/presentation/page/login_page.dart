@@ -4,6 +4,7 @@ import 'package:fidelity_app/common/constants/app_colors.dart';
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_text.dart';
 import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
+import 'package:fidelity_app/features/login/logic/provider/password_view_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -52,14 +53,30 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 controller: emailController,
               ),
-
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: AppStrings.passwordLabel,
-                  border: OutlineInputBorder(),
-                ),
-                obscureText: true,
-                controller: passwordController,
+              Consumer<PasswordViewProvider>(
+                builder: (context, passwordViewProvider, child) {
+                  return TextFormField(
+                    decoration: InputDecoration(
+                      labelText: AppStrings.passwordLabel,
+                      border: OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          passwordViewProvider.obscureText
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          Provider.of<PasswordViewProvider>(
+                            context,
+                            listen: false,
+                          ).changePasswordViewer();
+                        },
+                      ),
+                    ),
+                    obscureText: passwordViewProvider.obscureText,
+                    controller: passwordController,
+                  );
+                },
               ),
 
               Consumer<LoginProvider>(
