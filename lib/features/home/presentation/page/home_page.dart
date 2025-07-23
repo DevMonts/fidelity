@@ -19,8 +19,11 @@ class _HomePageState extends State<HomePage> {
     final navigationProvider = context.watch<NavigationProvider>();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pushNamed('/login'),
+          icon: Icon(Icons.door_back_door, color: Colors.brown),
+        ),
         title: Text(AppStrings.app),
-        automaticallyImplyLeading: false,
       ),
 
       body: _pages[navigationProvider.currentPage],
