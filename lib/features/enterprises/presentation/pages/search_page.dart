@@ -1,3 +1,4 @@
+import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/features/enterprises/logic/providers/search_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,21 +28,21 @@ class _SearchPageState extends State<SearchPage> {
           onChanged: (value) {
             searchProvider.searchEnterprises(value);
           },
-          decoration: InputDecoration(hintText: 'Pesquisar...'),
+          decoration: InputDecoration(
+            hintText: AppStrings.search,
+            border: OutlineInputBorder(),
+          ),
         ),
         automaticallyImplyLeading: false,
+        toolbarHeight: 100,
       ),
       body: ListView.builder(
         itemCount: searchProvider.enterprisesArray.length,
         itemBuilder: (context, index) {
           final enterprise = searchProvider.enterprisesArray[index];
-          return Card(
-            child: Container(
-              child: Text(
-                '${enterprise.enterpriseId} ${enterprise.enterpriseName}',
-              ),
-              height: 100,
-            ),
+          return ListTile(
+            leading: CircleAvatar(child: Text('${enterprise.enterpriseId}')),
+            title: Text('${enterprise.enterpriseName}'),
           );
         },
       ),
