@@ -1,7 +1,7 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/features/enterprises/presentation/pages/enterprises_page.dart';
 import 'package:fidelity_app/features/enterprises/presentation/pages/search_page.dart';
-import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
+import 'package:fidelity_app/features/home/logic/provider/home_navigation_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _pages = [EnterprisesPage(), SearchPage()];
   @override
   Widget build(BuildContext context) {
-    final navigationProvider = context.watch<NavigationProvider>();
+    final navigationProvider = context.watch<HomeNavigationProvider>();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

@@ -1,8 +1,9 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:fidelity_app/common/router/app_router.dart';
+import 'package:fidelity_app/features/adm/logic/provider/adm_navigation_provider.dart';
 import 'package:fidelity_app/features/enterprises/logic/providers/search_provider.dart';
-import 'package:fidelity_app/features/home/logic/provider/navigation_provider.dart';
+import 'package:fidelity_app/features/home/logic/provider/home_navigation_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/password_view_provider.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
@@ -18,11 +19,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => NavigationProvider()),
-        ChangeNotifierProvider(create: (_) => SearchProvider()),
-        ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
+        //Auth
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => PasswordViewProvider()),
+        ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
+        //Home
+        ChangeNotifierProvider(create: (_) => HomeNavigationProvider()),
+        ChangeNotifierProvider(create: (_) => SearchProvider()),
+        //ADM
+        ChangeNotifierProvider(create: (_) => AdmNavigationProvider()),
         ChangeNotifierProvider(create: (_) => RegisterEnterpriseProvider()),
         ChangeNotifierProvider(create: (_) => VinculateProvider()),
       ],
