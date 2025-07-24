@@ -1,12 +1,11 @@
 import 'package:fidelity_app/common/constants/app_strings.dart';
 import 'package:fidelity_app/common/constants/app_theme.dart';
 import 'package:fidelity_app/common/router/app_router.dart';
-import 'package:fidelity_app/features/adm/logic/provider/adm_navigation_provider.dart';
 import 'package:fidelity_app/features/enterprises/logic/providers/search_provider.dart';
-import 'package:fidelity_app/features/home/logic/provider/home_navigation_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/login_provider.dart';
 import 'package:fidelity_app/features/login/logic/provider/password_view_provider.dart';
 import 'package:fidelity_app/features/login/presentation/page/login_page.dart';
+import 'package:fidelity_app/features/navigation/logic/provider/navigation_provider.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_enterprise_provider.dart';
 import 'package:fidelity_app/features/register/logic/provider/register_user_provider.dart';
 import 'package:fidelity_app/features/vinculation/logic/provider/vinculate_provider.dart';
@@ -24,12 +23,12 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => PasswordViewProvider()),
         ChangeNotifierProvider(create: (_) => RegisterUserProvider()),
         //Home
-        ChangeNotifierProvider(create: (_) => HomeNavigationProvider()),
         ChangeNotifierProvider(create: (_) => SearchProvider()),
         //ADM
-        ChangeNotifierProvider(create: (_) => AdmNavigationProvider()),
         ChangeNotifierProvider(create: (_) => RegisterEnterpriseProvider()),
         ChangeNotifierProvider(create: (_) => VinculateProvider()),
+
+        ChangeNotifierProvider(create: (_) => NavigationProvider()),
       ],
 
       child: MaterialApp(
