@@ -26,7 +26,11 @@ class _HomePageState extends State<HomePage> {
         title: Text(AppStrings.app),
       ),
 
-      body: _pages[navigationProvider.currentHomePage],
+      body: PageView(
+        controller: navigationProvider.homePageController,
+        onPageChanged: navigationProvider.updateHomePageFromScroll,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(

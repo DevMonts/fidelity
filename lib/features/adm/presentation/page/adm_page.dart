@@ -28,7 +28,11 @@ class _AdmPageState extends State<AdmPage> {
         //automaticallyImplyLeading: false,
       ),
 
-      body: _pages[navigationProvider.currentAdmPage],
+      body: PageView(
+        controller: navigationProvider.admPageController,
+        onPageChanged: navigationProvider.updateAdmPageFromScroll,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
